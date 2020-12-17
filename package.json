@@ -1,0 +1,8 @@
+{
+  "name": "@skilbjo/railway",
+  "description": "CDK / Ledger API app",
+  "version": "0.0.1",
+  "dependencies": {
+    "pg": "^8.5.1"
+  }
+}
