@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-node --experimental-modules main.mjs
+node --experimental-modules main.mjs "$@"

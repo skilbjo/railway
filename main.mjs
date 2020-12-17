@@ -5,19 +5,22 @@ const pool = new pg.Pool({
   connectionString: cxnStr
 })
 
-const query = 'select *, 1 as blah from foo'
-
-async function makeQuery(q){
+async function runQuery(q){
   const result = await pool.query(q)
   return result
 }
 
-async function getResult() {
-  const result = await makeQuery(query).then(d => d)
-  return result.fields
+async function getResult(q) {
+  const result = await runQuery(q).then(d => d)
+  return result.rows
 }
 
-getResult().then((d) => {
+// const query = 'select *, 1 as blah from foo'
+
+var args = process.argv.slice(2)
+var query = args[0]
+
+getResult(query).then((d) => {
   console.log(d)
 })
 pool.end()
